@@ -1,0 +1,37 @@
+# === blacklist apps ===
+.blacklist [
+    "UTM"
+]
+
+# === App launch commands ===
+shift - return : open -a "Zen.app"
+ctrl - return : open -a "ghostty.app"
+alt - return : open -a "chatgpt.app"
+cmd - return : open -a "Visual Studio Code.app"
+
+# TODO: figure out window resizing
+
+# === window focus ===
+# cmd - j : yabai -m window --focus west
+# cmd - l : yabai -m window --focus north
+# cmd - k : yabai -m window --focus east
+# cmd - h : yabai -m window --focus south
+
+# === swap windows ===
+ctrl + cmd - j : yabai -m window --swap south
+ctrl + cmd - k : yabai -m window --swap north
+ctrl + cmd - h : yabai -m window --swap west
+ctrl + cmd - l : yabai -m window --swap east
+
+alt - d : yabai -m window --toggle float
+
+# Resize windows: ctrl + lalt - {h, j, k, l}
+ctrl + lalt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
+ctrl + lalt - j    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
+ctrl + lalt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
+ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
+
+shift + cmd - b : yabai -m space --balance
+
+# Make window native fullscreen
+cmd - m : yabai -m window --toggle zoom-fullscreen
