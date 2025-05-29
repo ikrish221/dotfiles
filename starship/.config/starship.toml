@@ -1,0 +1,165 @@
+add_newline = true
+# A minimal left prompt
+# format = """$directory$character"""
+format = '$all'
+palette = "rose-pine"
+
+[character]
+success_symbol = '[❯](lavender)'
+error_symbol = '[❯](maroon) '
+
+[directory]
+format = '[$path ]($style)'
+style = "pine"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = " "
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+
+[git_branch]
+symbol = " "
+style = "fg:purple"
+format =  'on [$symbol$branch ]($style)'
+
+[git_status]
+format = '[($all_status$ahead_behind)]($style)'
+style = "gold"
+
+[cmd_duration]
+disabled = true
+
+[c]
+disabled = true
+symbol = " "
+format = ' [$symbol $version ]($style)'
+style = 'blue'
+commands = [ [ 'clang', '--version' ] ]
+
+[nodejs]
+disabled = true
+symbol = ""
+format = '[$symbol( $version )]($style)'
+style = "green"
+
+[aws]
+format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
+disabled = false
+style = 'bold blue'
+symbol = " "
+
+[rust]
+disabled = true
+symbol = ""
+format = '[ $symbol( $version )]($style)'
+
+[lua]
+disabled = true
+format = 'via [🌕 $version](bold blue) '
+
+[golang]
+disabled = true
+symbol = ""
+format = '[ $symbol( $version) ]($style)'
+detect_files = ["go.mod"]
+style = "bold cyan"
+
+[php]
+disabled = true
+symbol = ""
+format = '[[ $symbol( $version) ]]($style)'
+
+[java]
+disabled = true
+symbol = " "
+format = '[[ $symbol( $version) ]]($style)'
+
+[kotlin]
+disabled = true
+symbol = ""
+format = '[[ $symbol( $version) ]]($style)'
+
+[haskell]
+disabled = true
+symbol = ""
+format = '[[ $symbol( $version) ]]($style)'
+
+[python]
+disabled = true
+symbol = ""
+format = '[[ $symbol( $version) ]]($style)'
+
+[kubernetes]
+symbol = '☸ '
+disabled = false
+detect_files = ['Dockerfile']
+format = '[$symbol$context( \($namespace\))]($style) '
+contexts = [
+  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "Glock", symbol = " " },
+]
+
+[docker_context]
+symbol = ""
+format = '[ $symbol( $context) ]($style)'
+
+[conda]
+disabled = true
+
+[palettes.rose-pine]
+overlay = '#26233a'
+love = '#eb6f92'
+gold = '#f6c177'
+rose = '#ebbcba'
+pine = '#31748f'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
