@@ -134,6 +134,7 @@ return {
     -- NOTE: Kanagwa
     {
         "rebelot/kanagawa.nvim",
+        name = "kanagawa",
         config = function()
             require('kanagawa').setup({
                 compile = false,  -- enable compiling the colorscheme
@@ -188,7 +189,7 @@ return {
                 end,
                 theme = "wave",    -- Load "wave" theme when 'background' option is not set
                 background = {     -- map the value of 'background' option to a theme
-                    dark = "wave", -- try "dragon" !
+                    dark = "dragon", -- try "dragon" !
                 },
             })
         end
