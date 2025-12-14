@@ -1,16 +1,15 @@
 add_newline = true
 # A minimal left prompt
-# format = """$directory$character"""
 format = '$all'
-palette = "rose-pine"
+palette = "kanagawa"
 
 [character]
-success_symbol = '[❯](lavender)'
-error_symbol = '[❯](maroon) '
+success_symbol = '[❯](oni_violet)'
+error_symbol = '[❯](wave_red) '
 
 [directory]
 format = '[$path ]($style)'
-style = "pine"
+style = "crystal_blue"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -40,15 +39,14 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
-
 [git_branch]
 symbol = " "
-style = "fg:purple"
-format =  'on [$symbol$branch ]($style)'
+style = "oni_violet"
+format = 'on [$symbol$branch ]($style)'
 
 [git_status]
 format = '[($all_status$ahead_behind)]($style)'
-style = "gold"
+style = "carp_yellow"
 
 [cmd_duration]
 disabled = true
@@ -57,19 +55,19 @@ disabled = true
 disabled = true
 symbol = " "
 format = ' [$symbol $version ]($style)'
-style = 'blue'
+style = 'crystal_blue'
 commands = [ [ 'clang', '--version' ] ]
 
 [nodejs]
 disabled = true
 symbol = ""
 format = '[$symbol( $version )]($style)'
-style = "green"
+style = "spring_green"
 
 [aws]
 format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
 disabled = false
-style = 'bold blue'
+style = 'bold crystal_blue'
 symbol = " "
 
 [rust]
@@ -79,14 +77,14 @@ format = '[ $symbol( $version )]($style)'
 
 [lua]
 disabled = true
-format = 'via [🌕 $version](bold blue) '
+format = 'via [🌕 $version](bold crystal_blue) '
 
 [golang]
 disabled = true
 symbol = ""
 format = '[ $symbol( $version) ]($style)'
 detect_files = ["go.mod"]
-style = "bold cyan"
+style = "bold spring_blue"
 
 [php]
 disabled = true
@@ -119,7 +117,7 @@ disabled = false
 detect_files = ['Dockerfile']
 format = '[$symbol$context( \($namespace\))]($style) '
 contexts = [
-  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "Glock", symbol = " " },
+  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "spring_green", context_alias = "Glock", symbol = " " },
 ]
 
 [docker_context]
@@ -129,37 +127,15 @@ format = '[ $symbol( $context) ]($style)'
 [conda]
 disabled = true
 
-[palettes.rose-pine]
-overlay = '#26233a'
-love = '#eb6f92'
-gold = '#f6c177'
-rose = '#ebbcba'
-pine = '#31748f'
-foam = '#9ccfd8'
-iris = '#c4a7e7'
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+[palettes.kanagawa]
+fuji_white = "#DCD7BA"    # Text
+samurai_red = "#C34043"   # Red
+sakura_pink = "#D27E99"   # Pink
+carp_yellow = "#E6C384"   # Yellow
+spring_green = "#98BB6C"  # Green
+crystal_blue = "#7E9CD8"  # Blue
+spring_blue = "#7FB4CA"   # Cyan/Teal
+surimi_orange = "#FF9E64" # Orange
+oni_violet = "#957FB8"    # Purple/Lavender
+wave_red = "#E46876"      # Error/Danger
+sumi_ink = "#54546D"      # Dark/Muted
