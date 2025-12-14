@@ -1,12 +1,14 @@
 # By default Reload config with shft + cmd + ,
 
-config-file = themes/rosepine
+config-file = themes/kanagawa
 background = #000000
-background-opacity = 0.65
+background-opacity = 0.4
 background-blur-radius = 100
 
-font-family = Source Code Pro SemiBold
-font-size = 18
+# font-family = Source Code Pro SemiBold
+font-family = Comic Code Semibold
+# font-size = 18
+font-size = 17
 cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
