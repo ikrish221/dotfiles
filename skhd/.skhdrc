@@ -7,7 +7,7 @@
 shift - return : open -a "Zen.app"
 ctrl - return : open -a "ghostty.app"
 alt - return : open -a "chatgpt.app"
-cmd - return : open -a "Visual Studio Code.app"
+cmd - return : open -a "Visual Studio Code - Insiders.app"
 
 # TODO: figure out window resizing
 
