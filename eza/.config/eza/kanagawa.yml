@@ -115,3 +115,4 @@ symlink_path:        {foreground: "#7E9CD8"}
 control_char:        {foreground: "#C34043"}
 broken_symlink:      {foreground: "#E46876"}
 broken_path_overlay: {foreground: "#54546D"}
+
