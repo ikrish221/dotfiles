@@ -3,10 +3,9 @@ return {
     {
         "folke/snacks.nvim",
         priority = 1000,
-        lazy = true,
+        lazy = false,
         -- NOTE: Options
         opts = {
-            -- Styling for each Item of Snacks
             styles = {
                 input = {
                     keys = {
@@ -30,9 +29,15 @@ return {
                     frecency = true,
                     cwd_bonus = false,
                 },
+                exclude = {
+                    ".git",
+                    "node_modules",
+                    "dist",
+                    "build",
+                },
                 formatters = {
                     file = {
-                        filename_first = false,
+                        filename_first = true,
                         filename_only = false,
                         icon_width = 2,
                     },
@@ -104,14 +109,16 @@ return {
                 }
             },
             image = {
-                enabled = false,
+                enabled = function()
+                    return vim.bo.filetype == "markdown"
+                end,
                 doc = {
-                    float = false,
-                    inline = true, -- if you want show image on cursor hover
-                    max_width = 50,
-                    max_height = 30,
+                    float = false, -- show image on cursor hover
+                    inline = false, -- show image inline
+                    max_width = 100,
+                    max_height = 70,
                     wo = {
-                        wrap = true,
+                        wrap = false,
                     },
                 },
                 convert = {
@@ -121,18 +128,18 @@ return {
                 img_dirs = { "img", "images", "assets", "static", "public", "media", "attachments","Archives/All-Vault-Images/", "~/Library", "~/Downloads" },
             },
             dashboard = {
-                enabled = false,
+                enabled = true,
                 sections = {
                     { section = "header" },
                     { section = "keys", gap = 1, padding = 1 },
                     { section = "startup" },
                     {
                         section = "terminal",
-                        cmd = "ascii-image-converter ~/Desktop/Others/profiles.JPG -C -c",
+                        cmd = "ascii-image-converter pix.jpg -C -c -d 50,25",
                         random = 10,
                         pane = 2,
                         indent = 4,
-                        height = 30,
+                        height = 25,
                     },
                 },
             },
@@ -146,13 +153,13 @@ return {
 
             -- Snacks Picker
             { "<leader>ff", function() require("snacks").picker.files() end, desc = "Find Files (Snacks Picker)" },
-            { "<leader>fc", function() require("snacks").picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-            { "<leader>fl", function() require("snacks").picker.grep() end, desc = "Grep word" },
+            { "<leader>fc", function() require("snacks").picker.files({ cwd = "~/dotfiles/nvim/.config/nvim/lua" }) end, desc = "Find Config File" },
+            { "<leader>fs", function() require("snacks").picker.grep() end, desc = "Grep word" },
             { "<leader>fw", function() require("snacks").picker.grep_word() end, desc = "Search Visual selection or Word", mode = { "n", "x" } },
             { "<leader>fk", function() require("snacks").picker.keymaps({ layout = "ivy" }) end, desc = "Search Keymaps (Snacks Picker)" },
 
             -- Git Stuff
-            { "<leader>gbr", function() require("snacks").picker.git_branches({ layout = "select" }) end, desc = "Pick and Switch Git Branches" },
+            { "<leader>gb", function() require("snacks").picker.git_branches({ layout = "select" }) end, desc = "Pick and Switch Git Branches" },
 
             -- Other Utils
             { "<leader>th" , function() require("snacks").picker.colorschemes({ layout = "ivy" }) end, desc = "Pick Color Schemes"},
@@ -165,8 +172,8 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         optional = true,
         keys = {
-            { "<leader>pt", function() require("snacks").picker.todo_comments() end, desc = "Todo" },
-            { "<leader>pT", function() require("snacks").picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, desc = "Todo/Fix/Fixme" },
+            { "<leader>pt", function() require("snacks").picker.todo_comments() end, desc = "All" },
+            { "<leader>pT", function() require("snacks").picker.todo_comments({ keywords = { "TODO","FORGETNOT","FIXME" } }) end, desc = "mains" },
         },
     }
 }

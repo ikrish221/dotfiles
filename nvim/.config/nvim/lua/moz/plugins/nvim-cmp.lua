@@ -1,9 +1,11 @@
 return {
     "hrsh7th/nvim-cmp",
-    -- event = "InsertEnter",
+    event = "InsertEnter",
+    branch = "main", -- fix for deprecated functions coming in nvim 0.13
     dependencies = {
         "hrsh7th/cmp-buffer", -- source for text in buffer
         "hrsh7th/cmp-path", -- source for file system paths
+        "f3fora/cmp-spell",
         {
             "L3MON4D3/LuaSnip",
             -- follow latest release.
@@ -201,11 +203,26 @@ return {
         -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
 
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+                { name = "cmdline" },
+                {
+                    name = 'buffer' ,
+                    option = {
+                        max_item_count = 30,
+                        keyword_length = 3,
+                    },
+                },
+            }),
+        })
+
         cmp.setup({
             experimental = {
                 -- HACK: experimenting with ghost text
                 -- look at `toggle_ghost_text()` function below.
-                ghost_text = true,
+                ghost_text = false,
             },
             completion = {
                 completeopt = "menu,menuone,noinsert",
@@ -228,10 +245,19 @@ return {
             -- autocompletion sources
             sources = cmp.config.sources({
                 { name = "luasnip" }, -- snippets
+                { name = "lazydev" },
                 { name = "nvim_lsp"},
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
                 { name = "tailwindcss-colorizer-cmp" },
+                { name = "spell", -- for markdown spellchecks completions
+                    option = {
+                        enable_in_context = function()
+                            local ft = vim.bo.filetype
+                            return ft == "markdown" or ft == "text"
+                        end,
+                    },
+                },
             }),
             -- mapping = cmp.mapping.preset.insert({
             --     ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -245,21 +271,32 @@ return {
 
             -- NOTE: ! Experimenting with Customized Mappings ! --
             mapping = cmp.mapping.preset.insert({
-                ['<BS>'] = cmp.mapping(function(_fallback)
-                    smart_bs()
-                end, { 'i', 's' }),
-
-                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                -- ['<BS>'] = cmp.mapping(function(_fallback)
+                --     smart_bs()
+                -- end, { 'i', 's' }),
 
                 ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+                ['<C-d>'] = cmp.mapping(function()
+                    cmp.close_docs()
+                end, { 'i', 's' }),
 
-                ['<C-d>'] = cmp.mapping.scroll_docs(4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-j>'] = cmp.mapping(select_next_item),
                 ['<C-k>'] = cmp.mapping(select_prev_item),
-                -- ['<C-n>'] = cmp.mapping(select_next_item),
-                -- ['<C-p>'] = cmp.mapping(select_prev_item),
+                ['<C-n>'] = cmp.mapping(select_next_item),
+                ['<C-p>'] = cmp.mapping(select_prev_item),
                 ['<Down>'] = cmp.mapping(select_next_item),
                 ['<Up>'] = cmp.mapping(select_prev_item),
+
+                ['<C-y>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        local entry = cmp.get_selected_entry()
+                        confirm(entry)
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
 
                 ['<CR>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
@@ -320,7 +357,7 @@ return {
 
                     -- use lspkind and tailwindcss-colorizer-cmp for additional formatting
                     vim_item = lspkind.cmp_format({
-                        maxwidth = 30,
+                        maxwidth = 25,
                         ellipsis_char = "...",
                     })(entry, vim_item)
 
@@ -343,32 +380,32 @@ return {
         -- Only show ghost text at word boundaries, not inside keywords. Based on idea
         -- from: https://github.com/hrsh7th/nvim-cmp/issues/2035#issuecomment-2347186210
 
-        local config = require('cmp.config')
-        local toggle_ghost_text = function()
-            if vim.api.nvim_get_mode().mode ~= 'i' then
-                return
-            end
-
-            local cursor_column = vim.fn.col('.')
-            local current_line_contents = vim.fn.getline('.')
-            local character_after_cursor = current_line_contents:sub(cursor_column, cursor_column)
-
-            local should_enable_ghost_text = character_after_cursor == '' or vim.fn.match(character_after_cursor, [[\k]]) == -1
-
-            local current = config.get().experimental.ghost_text
-            if current ~= should_enable_ghost_text then
-                config.set_global({
-                    experimental = {
-                        ghost_text = should_enable_ghost_text,
-                    },
-                })
-            end
-        end
-
-        vim.api.nvim_create_autocmd({ 'InsertEnter', 'CursorMovedI' }, {
-            callback = toggle_ghost_text,
-        })
-        -- ! Ghost text stuff ! -- 
+        -- local config = require('cmp.config')
+        -- local toggle_ghost_text = function()
+        --     if vim.api.nvim_get_mode().mode ~= 'i' then
+        --         return
+        --     end
+        --
+        --     local cursor_column = vim.fn.col('.')
+        --     local current_line_contents = vim.fn.getline('.')
+        --     local character_after_cursor = current_line_contents:sub(cursor_column, cursor_column)
+        --
+        --     local should_enable_ghost_text = character_after_cursor == '' or vim.fn.match(character_after_cursor, [[\k]]) == -1
+        --
+        --     local current = config.get().experimental.ghost_text
+        --     if current ~= should_enable_ghost_text then
+        --         config.set_global({
+        --             experimental = {
+        --                 ghost_text = should_enable_ghost_text,
+        --             },
+        --         })
+        --     end
+        -- end
+        --
+        -- vim.api.nvim_create_autocmd({ 'InsertEnter', 'CursorMovedI' }, {
+        --     callback = toggle_ghost_text,
+        -- })
+        -- ! Ghost text stuff ! --
 
     end,
 }

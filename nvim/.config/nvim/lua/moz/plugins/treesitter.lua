@@ -5,7 +5,7 @@ return {
         build = ":TSUpdate",
         config = function()
             -- import nvim-treesitter plugin
-            local treesitter = require("nvim-treesitter.configs")
+            local treesitter = require("nvim-treesitter.config")
 
             -- configure treesitter
             treesitter.setup({ -- enable syntax highlighting
@@ -42,6 +42,7 @@ return {
                     "c",
                     "java",
                     "rust",
+                    "ron",
                 },
                 incremental_selection = {
                     enable = true,
@@ -58,6 +59,7 @@ return {
     -- NOTE: js,ts,jsx,tsx Auto Close Tags
     {
         "windwp/nvim-ts-autotag",
+        enabled = true,
         ft = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
         config = function()
             -- Independent nvim-ts-autotag setup

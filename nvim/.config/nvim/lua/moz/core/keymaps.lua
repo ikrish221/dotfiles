@@ -3,6 +3,10 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.keymap.set("n", "<leader><leader>", function()
+    vim.cmd("so")
+end)
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual selection" })
 
@@ -47,10 +51,13 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("n", "<space><space>", "<cmd>set nohlsearch<CR>", { desc = "Clear search hl", silent = true })
 
 -- format without prettier using the built in
-vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Unmaps Q in normal mode
 vim.keymap.set("n", "Q", "<nop>")
+
+--Stars new tmux session from in here
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- prevent x delete from registering when next paste
 vim.keymap.set("n", "x", '"_x', opts)
@@ -58,6 +65,9 @@ vim.keymap.set("n", "x", '"_x', opts)
 -- Replace the word cursor is on globally
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "Replace word cursor is on globally" })
+
+-- Executes shell command from in here making file executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "makes file executable" })
 
 -- Hightlight yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -68,19 +78,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-
 --split management
-vim.keymap.set("n", "<leader>v", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 -- split window vertically
-vim.keymap.set("n", "<leader>h", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 -- split window horizontally
-vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+-- close current split window
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Copy filepath to the clipboard
 vim.keymap.set("n", "<leader>fp", function()
   local filePath = vim.fn.expand("%:~") -- Gets the file path relative to the home directory
   vim.fn.setreg("+", filePath) -- Copy the file path to the clipboard register
-  print("File path copied to clipboard: " .. filePath) -- Optional: print message to confirm
+  print("File path copied to clipboard: " .. filePath)
 end, { desc = "Copy file path to clipboard" })
 
 -- Toggle LSP diagnostics visibility
@@ -92,3 +103,4 @@ vim.keymap.set("n", "<leader>lx", function()
         underline = isLspDiagnosticsVisible
     })
 end, { desc = "Toggle LSP diagnostics" })
+

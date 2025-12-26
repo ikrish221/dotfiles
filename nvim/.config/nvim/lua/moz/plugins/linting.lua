@@ -8,12 +8,12 @@ return {
 
 		-- if Eslint error configuration not found : change MasonInstall eslint@version or npm i -g eslint at a specific version
 		lint.linters_by_ft = {
-			javascript = {},
-			typescript = {},
-			javascriptreact = {},
-			typescriptreact = {},
-			svelte = { "eslint_d" },
-			-- python = { "pylint" },
+			javascript = {"biomejs"},
+			typescript = {"biomejs"},
+			javascriptreact = {"biomejs"},
+			typescriptreact = {"biomejs"},
+			svelte = { "biomejs" },
+			python = { "pylint" },
 		}
 
 		eslint.args = {
@@ -23,7 +23,7 @@ return {
 			"--stdin",
 			"--stdin-filename",
 			function()
-				return vim.api.nvim_buf_get_name(0)
+                return vim.fn.expand("%:p")
 			end,
 		}
 

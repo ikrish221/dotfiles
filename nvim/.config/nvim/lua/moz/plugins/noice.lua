@@ -1,41 +1,39 @@
 return {
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
         enabled = true,
-		opts = {
-		},
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-		},
-		config = function()
-			local noice = require("noice")
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+        },
+        config = function ()
+            local noice = require("noice")
 
-			noice.setup({
-				cmdline = {
-					enabled = true,
-					view = "cmdline_popup",
-					format = {
-						cmdline = { pattern = "", icon = "❯", lang = "vim" },
+            noice.setup({
+                cmdline = {
+                    enabled = true,
+                    view = "cmdline_popup",
+                    format = {
+                        cmdline = { pattern = "", icon = "󱐌 :", lang = "vim" },
                         help = { pattern = "^:%s*he?l?p?%s+", icon = " 󰮦 :" },
                         search_down = { kind = "search", pattern = "^/", icon = "/", lang = "regex" },
                         search_up = { kind = "search", pattern = "^%?", icon = "/", lang = "regex" },
-						filter = { pattern = "^:%s*!", icon = " $ :", lang = "bash" },
-						lua = {
-							pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
-							icon = "  :",
-							lang = "lua",
-						},
-						input = { view = "cmdline_input", icon = " 󰥻 :" }, -- Used by input()
-					},
-				},
+                        filter = { pattern = "^:%s*!", icon = " $ :", lang = "bash" },
+                        lua = {
+                            pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
+                            icon = "  :",
+                            lang = "lua",
+                        },
+                        input = { view = "cmdline_input", icon = " 󰥻 :" }, -- Used by input()
+                    },
+                },
                 views = {
                     popupmenu = {
                         relative = "editor",
                         position = {
-                            row = 8,
-                            col = "50%",
+                                row = 8,
+                                col = "50%",
                         },
                         win_options = {
                             winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
@@ -53,7 +51,6 @@ return {
                         },
                     }
                 },
-
 				lsp = {
 					progress = {
 						enabled = true,
@@ -64,15 +61,10 @@ return {
 						["vim.lsp.util.stylize_markdown"] = true,
 						["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 					},
+                    signature = {
+                        auto_open = { enabled = false }, -- disable auto signature help on insert mode
+                    },
 				},
-				-- you can enable a preset for easier configuration
-				-- presets = {
-				-- 	bottom_search = false, -- use a classic bottom cmdline for search
-				-- 	command_palette = false, -- position the cmdline and popupmenu together
-				-- 	long_message_to_split = false, -- long messages will be sent to a split
-				-- 	inc_rename = false, -- enables an input dialog for inc-rename.nvim
-				-- 	lsp_doc_border = false, -- add a border to hover docs and signature help
-				-- },
                 routes = {
                     {
                         filter = {
@@ -88,23 +80,20 @@ return {
                         opts = { skip = true },
                     }
                 },
-
 				messages = {
-					enabled = true,
+					enabled = false,
 				},
-
                 health = {
                     checker = true,
                 },
-
 				popupmenu = {
 					enabled = true,
+                    backend = "cmp",
 				},
-
 				signature = {
 					enabled = true,
 				},
-			})
-		end,
-	},
+            })
+        end
+    }
 }

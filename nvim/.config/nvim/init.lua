@@ -1,3 +1,3 @@
-require("clay.core")
-require("clay.lazy")
+require("moz.core")
+require("moz.lazy")
 require("current-theme")

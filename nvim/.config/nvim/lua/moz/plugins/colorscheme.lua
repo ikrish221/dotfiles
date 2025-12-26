@@ -134,7 +134,6 @@ return {
     -- NOTE: Kanagwa
     {
         "rebelot/kanagawa.nvim",
-        name = "kanagawa",
         config = function()
             require('kanagawa').setup({
                 compile = false,  -- enable compiling the colorscheme
@@ -189,7 +188,7 @@ return {
                 end,
                 theme = "wave",    -- Load "wave" theme when 'background' option is not set
                 background = {     -- map the value of 'background' option to a theme
-                    dark = "dragon", -- try "dragon" !
+                    dark = "wave", -- try "dragon" !
                 },
             })
         end
@@ -254,7 +253,7 @@ return {
     -- NOTE : tokyonight
     {
         "folke/tokyonight.nvim",
-        name = "tokyonight",
+        name = "folkeTokyonight",
         -- priority = 1000,
         config = function()
             local transparent = true
