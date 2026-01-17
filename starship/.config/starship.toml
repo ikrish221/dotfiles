@@ -1,141 +1,79 @@
 add_newline = true
-# A minimal left prompt
-format = '$all'
-palette = "kanagawa"
+
+# Minimal, calm, left-aligned
+format = "$directory$git_branch$git_status$character"
+palette = "reverse_void"
 
 [character]
-success_symbol = '[❯](oni_violet)'
-error_symbol = '[❯](wave_red) '
+success_symbol = "[❯](ink)"
+error_symbol   = "[❯](error)"
 
 [directory]
-format = '[$path ]($style)'
-style = "crystal_blue"
+format = "[$path ]($style)"
+style = "ink"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
-
-[os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = " "
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
+"Documents" = "doc/"
+"Downloads" = "dl/"
+"Music"     = "snd/"
+"Pictures"  = "img/"
+"Developer" = "wrk/"
 
 [git_branch]
-symbol = " "
-style = "oni_violet"
-format = 'on [$symbol$branch ]($style)'
+symbol = ""
+format = "[$branch ]($style)"
+style = "faded"
 
 [git_status]
-format = '[($all_status$ahead_behind)]($style)'
-style = "carp_yellow"
+format = "[($all_status$ahead_behind)]($style)"
+style = "warn"
 
 [cmd_duration]
 disabled = true
 
+# --- Languages (kept disabled, reverse-void ready) ---
+
 [c]
 disabled = true
-symbol = " "
-format = ' [$symbol $version ]($style)'
-style = 'crystal_blue'
-commands = [ [ 'clang', '--version' ] ]
 
 [nodejs]
 disabled = true
-symbol = ""
-format = '[$symbol( $version )]($style)'
-style = "spring_green"
-
-[aws]
-format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
-disabled = false
-style = 'bold crystal_blue'
-symbol = " "
 
 [rust]
 disabled = true
-symbol = ""
-format = '[ $symbol( $version )]($style)'
-
-[lua]
-disabled = true
-format = 'via [🌕 $version](bold crystal_blue) '
-
-[golang]
-disabled = true
-symbol = ""
-format = '[ $symbol( $version) ]($style)'
-detect_files = ["go.mod"]
-style = "bold spring_blue"
-
-[php]
-disabled = true
-symbol = ""
-format = '[[ $symbol( $version) ]]($style)'
-
-[java]
-disabled = true
-symbol = " "
-format = '[[ $symbol( $version) ]]($style)'
-
-[kotlin]
-disabled = true
-symbol = ""
-format = '[[ $symbol( $version) ]]($style)'
-
-[haskell]
-disabled = true
-symbol = ""
-format = '[[ $symbol( $version) ]]($style)'
 
 [python]
 disabled = true
-symbol = ""
-format = '[[ $symbol( $version) ]]($style)'
 
-[kubernetes]
-symbol = '☸ '
-disabled = false
-detect_files = ['Dockerfile']
-format = '[$symbol$context( \($namespace\))]($style) '
-contexts = [
-  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "spring_green", context_alias = "Glock", symbol = " " },
-]
+# --- Containers / infra ---
 
 [docker_context]
-symbol = ""
-format = '[ $symbol( $context) ]($style)'
+symbol = ""
+format = "[$context ]($style)"
+style = "muted"
+
+[kubernetes]
+disabled = true
+
+[aws]
+disabled = true
 
 [conda]
 disabled = true
 
-[palettes.kanagawa]
-fuji_white = "#DCD7BA"    # Text
-samurai_red = "#C34043"   # Red
-sakura_pink = "#D27E99"   # Pink
-carp_yellow = "#E6C384"   # Yellow
-spring_green = "#98BB6C"  # Green
-crystal_blue = "#7E9CD8"  # Blue
-spring_blue = "#7FB4CA"   # Cyan/Teal
-surimi_orange = "#FF9E64" # Orange
-oni_violet = "#957FB8"    # Purple/Lavender
-wave_red = "#E46876"      # Error/Danger
-sumi_ink = "#54546D"      # Dark/Muted
+# --- OS (silent, aesthetic only) ---
+
+[os]
+disabled = true
+
+# =========================
+# 🎨 Reverse Void Palette
+# =========================
+
+[palettes.reverse_void]
+ink        = "#1F1F1F"   # primary text (almost black)
+faded      = "#6B6B6B"   # git branch
+muted      = "#8A8A8A"   # docker / secondary
+warn       = "#9C7C38"   # subtle yellow-brown
+error      = "#8C3A3A"   # muted red
+background = "#F6F4EE"   # paper white (reference only)
