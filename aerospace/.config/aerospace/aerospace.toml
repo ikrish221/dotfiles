@@ -1,0 +1,244 @@
+# ─────────────────────────────────────────────
+# Startup
+# ─────────────────────────────────────────────
+
+start-at-login = true
+
+after-startup-command = [
+  'exec-and-forget borders style=round width=4.0 active_color=0xff191724 inactive_color=0xff6faec9',
+  'exec-and-forget open -a "/Applications/Ghostty.app"',
+  'exec-and-forget open -a "/Applications/Zen.app"',
+  'exec-and-forget open -a "/Applications/ChatGPT.app"',
+  'exec-and-forget open -a "/Applications/Visual Studio Code - Insiders.app"',
+  'exec-and-forget open -a "/Applications/Brave Browser.app"'
+]
+
+exec-on-workspace-change = []
+
+# ─────────────────────────────────────────────
+# Normalization
+# ─────────────────────────────────────────────
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 50
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = false
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCodeInsiders'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-id = 'ch.protonmail.desktop'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'me.proton.pass.electron'
+run = ['move-node-to-workspace 8', 'layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = [
+  "move-node-to-workspace 10",
+  "layout floating"
+]
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = [
+  "move-node-to-workspace 10",
+  "layout floating"
+]
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.discord.Discord'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+run = 'layout floating'
+
+# Camera apps (add specific IDs for the camera apps you use)
+[[on-window-detected]]
+if.app-id = 'com.apple.camera'
+run = 'layout floating'
+
+# Elgato apps (add specific app ID)
+[[on-window-detected]]
+if.app-id = 'com.corsair.ControlCenter'
+run = 'layout floating'
+
+# Trello (web or app)
+[[on-window-detected]]
+if.app-id = 'com.atlassian.trello'
+run = 'layout floating'
+
+# Preview (web or app)
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
+
+# ─────────────────────────────────────────────
+# Key Mapping
+# ─────────────────────────────────────────────
+
+[key-mapping]
+preset = 'qwerty'
+
+# ─────────────────────────────────────────────
+# Gaps
+# ─────────────────────────────────────────────
+
+[gaps]
+inner.horizontal = 10
+inner.vertical   = 10
+outer.left       = 7
+outer.right      = 7
+outer.bottom     = 7
+outer.top        = 7
+
+# ─────────────────────────────────────────────
+# Main Mode Bindings
+# ─────────────────────────────────────────────
+
+[mode.main.binding]
+
+# Focus
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Window Management
+alt-shift-q = 'close'
+alt-shift-m = 'fullscreen'
+
+# Layout
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+alt-f = 'layout floating tiling'
+
+# Resize
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+# Join windows (using ctrl+alt)
+ctrl-alt-h = 'join-with left'
+ctrl-alt-j = 'join-with down'
+ctrl-alt-k = 'join-with up'
+ctrl-alt-l = 'join-with right'
+
+# ─────────────────────────────────────────────
+# Workspaces (Alt + number)
+# ─────────────────────────────────────────────
+
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
+
+alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+alt-shift-0 = 'move-node-to-workspace 10 --focus-follows-window'
+
+alt-tab = 'workspace-back-and-forth'
+
+# ─────────────────────────────────────────────
+# App Launchers
+# ─────────────────────────────────────────────
+
+# Primary apps
+shift-enter = 'exec-and-forget open -a "/Applications/Zen.app"'
+ctrl-enter  = 'exec-and-forget open -a "/Applications/Ghostty.app"'
+alt-enter = 'exec-and-forget open -a "/Applications/ChatGPT.app"'
+cmd-enter = 'exec-and-forget open -a "/Applications/Visual Studio Code - Insiders.app"'
+ 
+# Additional apps
+alt-b = 'exec-and-forget open -a "/Applications/Brave Browser.app"'
+alt-p = 'exec-and-forget open -a "/Applications/Proton Pass.app"'
+alt-m = 'exec-and-forget open -a "/Applications/Proton Mail.app"'
+alt-s = 'exec-and-forget open -a "System Settings"'
+alt-n = 'exec-and-forget open -a "Finder"'
+alt-o = 'exec-and-forget open -a "/Applications/Google Chrome.app"'
+alt-d = 'exec-and-forget open -a "/Applications/Discord.app"'
+
+# ─────────────────────────────────────────────
+# Modes
+# ─────────────────────────────────────────────
+
+alt-shift-semicolon = 'mode service'
+alt-shift-enter     = 'mode apps'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+[mode.apps.binding]
+alt-w = ['exec-and-forget open -a "/Applications/WezTerm.app"', 'mode main']
