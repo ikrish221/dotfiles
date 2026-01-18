@@ -1,0 +1,52 @@
+background = #F6F4EE
+foreground = #1F1F1F
+
+selection-foreground = #1F1F1F
+selection-background = #E9E6DE
+
+# Base ANSI
+palette = "0=#1F1F1F"
+palette = "1=#7A2E2E"
+palette = "2=#6F8A6A"
+palette = "3=#9C7C38"
+palette = "4=#5E6F8E"
+palette = "5=#6F6788"
+palette = "6=#6C8891"
+palette = "7=#E6E3DB"
+
+palette = "8=#6B6B6B"
+palette = "9=#7A2E2E"
+palette = "10=#6F8A6A"
+palette = "11=#9C7C38"
+palette = "12=#5E6F8E"
+palette = "13=#6F6788"
+palette = "14=#6C8891"
+palette = "15=#1F1F1F"
+
+# Grayscale ramp (light-safe)
+palette = "232=#F6F4EE"
+palette = "233=#F0EEE8"
+palette = "234=#EAE8E2"
+palette = "235=#E4E2DC"
+palette = "236=#DEDCD6"
+palette = "237=#D8D6D0"
+palette = "238=#D2D0CA"
+palette = "239=#CCCAC4"
+palette = "240=#C6C4BE"
+palette = "241=#C0BEB8"
+palette = "242=#BAB8B2"
+palette = "243=#B4B2AC"
+palette = "244=#AEACA6"
+palette = "245=#A8A6A0"
+palette = "246=#A2A09A"
+palette = "247=#9C9A94"
+palette = "248=#96948E"
+palette = "249=#908E88"
+palette = "250=#8A8882"
+palette = "251=#84827C"
+palette = "252=#7E7C76"
+palette = "253=#787670"
+palette = "254=#72706A"
+palette = "255=#6C6A64"
+
+cursor-color = #1F1F1F
