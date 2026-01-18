@@ -1,0 +1,14 @@
+# Reverse Void — paper ink theme
+
+set fish_color_command        1f1f1f
+set fish_color_param          6f6788
+set fish_color_quote          a96b7d
+set fish_color_error          7a2e2e
+set fish_color_autosuggestion 8a8a8a
+set fish_color_operator       5e6f8e
+set fish_color_escape         a8744f
+set fish_color_comment        8a8a8a
+set fish_color_valid_path     5e6f8e
+set fish_color_redirection    6c8891
+
+set fish_pager_color_description 8a8a8a
