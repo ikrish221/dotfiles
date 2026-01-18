@@ -48,6 +48,7 @@ vim.api.nvim_set_keymap('n', '<C-x>', "<cmd>%d<CR>", { noremap = true, silent = 
 -- leader d delete wont remember as yanked/clipboard when delete pasting
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
+vim.keymap.set("n", "<ESC><ESC>", "<cmd>set nohlsearch<CR>", { desc = "Clear search hl", silent = true })
 vim.keymap.set("n", "<space><space>", "<cmd>set nohlsearch<CR>", { desc = "Clear search hl", silent = true })
 
 -- format without prettier using the built in
@@ -63,7 +64,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "x", '"_x', opts)
 
 -- Replace the word cursor is on globally
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+vim.keymap.set("n", "<leader>[", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "Replace word cursor is on globally" })
 
 -- Executes shell command from in here making file executable

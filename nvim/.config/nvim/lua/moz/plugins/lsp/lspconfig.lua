@@ -224,6 +224,37 @@ return {
 			},
 		})
 
+		-- Python (pyright)
+		vim.lsp.config("pyright", {
+			settings = {
+				python = {
+					analysis = {
+                        -- typeCheckingMode = "off", -- Set type-checking mode to off
+                        -- diagnosticMode = "off", -- Disable diagnostics entirely
+						autoSearchPaths = true,
+                        diagnosticMode = "workspace",
+                        typeCheckingMode = "basic",
+						useLibraryCodeForTypes = true,
+						diagnosticSeverityOverrides = {
+							reportUnusedImport = "none",
+						},
+					},
+				},
+			},
+		})
+
+		-- Ruff LSP (for linting)
+		-- vim.lsp.config("ruff", {
+		-- 	init_options = {
+		-- 		settings = {
+		--                   args = {
+		--                   },
+		-- 		},
+		-- 	},
+		-- })
+
+		vim.lsp.enable("pyright")
+		-- vim.lsp.enable("ruff")
 		vim.lsp.enable("lua_ls")
 		vim.lsp.enable("emmet_language_server")
 		vim.lsp.enable("emmet_ls")

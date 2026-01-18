@@ -29,8 +29,8 @@ return {
 				typescript = { "biome-check" },
 				javascriptreact = { "biome-check" },
 				typescriptreact = { "biome-check" },
-				css = { "biome-check" },
-				html = { "biome-check" },
+				css = { "prettier" },
+				html = { "prettier" },
 				svelte = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
@@ -41,11 +41,11 @@ return {
 				markdown = { "prettier", "markdown-toc" },
 				-- ["markdown.mdx"] = { "prettier", "markdownlint", "markdown-toc" },
 			},
-			-- format_on_save = {
-			-- 	lsp_fallback = true,
-			-- 	async = false,
-			-- 	timeout_ms = 1000,
-			-- },
+			format_on_save = {
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 1000,
+			},
 		})
 
 		-- Configure individual formatters
