@@ -25,6 +25,7 @@ return {
 				},
 			},
 			formatters_by_ft = {
+				rust = { "rustfmt" },
 				javascript = { "biome-check" },
 				typescript = { "biome-check" },
 				javascriptreact = { "biome-check" },
@@ -47,6 +48,12 @@ return {
 				timeout_ms = 1000,
 			},
 		})
+
+		conform.formatters.rustfmt = {
+			args = { "--edition", "2021" },
+			stdin = true,
+			timeout_ms = 5000, -- Increase timeout
+		}
 
 		-- Configure individual formatters
 		conform.formatters.prettier = {

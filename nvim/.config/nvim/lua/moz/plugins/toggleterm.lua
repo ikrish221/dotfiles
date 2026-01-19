@@ -65,7 +65,7 @@ return {
 
 		-- C file: compile + run
 		vim.keymap.set("n", "<leader>tc", function()
-			local file_path = vim.fn.expand("%:p")
+			local file_path = vim.fn.expand("%:.")
 			local file_name = vim.fn.expand("%:t:r")
 			local cmd = string.format("clear && clang %s -o %s && ./%s ; exec $SHELL", file_path, file_name, file_name)
 			run_in_float(cmd)
@@ -73,7 +73,7 @@ return {
 
 		-- C++ file: compile + run
 		vim.keymap.set("n", "<leader>ts", function()
-			local file_path = vim.fn.expand("%:p")
+			local file_path = vim.fn.expand("%:.")
 			local file_name = vim.fn.expand("%:t:r")
 			local cmd =
 				string.format("clear && clang++ %s -o %s && ./%s ; exec $SHELL", file_path, file_name, file_name)
@@ -82,14 +82,21 @@ return {
 
 		-- Python file: run
 		vim.keymap.set("n", "<leader>tp", function()
-			local file_path = vim.fn.expand("%:p")
+			local file_path = vim.fn.expand("%:.")
 			local cmd = string.format("clear && python3 %s ; exec $SHELL", file_path)
 			run_in_float(cmd)
 		end, { desc = "Run Python file" })
 
+		-- Rust file: run
+		vim.keymap.set("n", "<leader>tr", function()
+			local file_path = vim.fn.expand("%:.")
+			local cmd = string.format("clear && cargo build && cargo run %s ; exec $SHELL", file_path)
+			run_in_float(cmd)
+		end, { desc = "Run Rust file" })
+
 		-- Javascript file: run
 		vim.keymap.set("n", "<leader>tj", function()
-			local file_path = vim.fn.expand("%:p")
+			local file_path = vim.fn.expand("%:.")
 			local cmd = string.format("clear && bun run %s ; exec $SHELL", file_path)
 			run_in_float(cmd)
 		end, { desc = "Run Javascript file" })

@@ -58,11 +58,12 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"isort", -- python formatter
-				"rustfmt", -- formatter
 				"ruff",
 				"biome",
 				"codelldb", -- debugger (optional)
 				"clang-format", -- formatter
+				"markdownlint-cli2",
+				"markdown-toc",
 			},
 
 			-- NOTE: mason BREAKING Change! Removed setup_handlers

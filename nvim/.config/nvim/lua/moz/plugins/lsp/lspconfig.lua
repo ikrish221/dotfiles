@@ -99,6 +99,7 @@ return {
 							[vim.fn.stdpath("config") .. "/lua"] = true,
 						},
 					},
+					locale = "en-us",
 				},
 			},
 		})
@@ -217,9 +218,9 @@ return {
 					checkOnSave = {
 						command = "clippy",
 					},
-					rustfmt = {
-						extraArgs = { "--edition", "2021" },
-					},
+					-- rustfmt = {
+					-- 	extraArgs = { "--edition", "2021" },
+					-- },
 				},
 			},
 		})
@@ -229,11 +230,11 @@ return {
 			settings = {
 				python = {
 					analysis = {
-                        -- typeCheckingMode = "off", -- Set type-checking mode to off
-                        -- diagnosticMode = "off", -- Disable diagnostics entirely
+						-- typeCheckingMode = "off", -- Set type-checking mode to off
+						-- diagnosticMode = "off", -- Disable diagnostics entirely
 						autoSearchPaths = true,
-                        diagnosticMode = "workspace",
-                        typeCheckingMode = "basic",
+						diagnosticMode = "workspace",
+						typeCheckingMode = "basic",
 						useLibraryCodeForTypes = true,
 						diagnosticSeverityOverrides = {
 							reportUnusedImport = "none",
