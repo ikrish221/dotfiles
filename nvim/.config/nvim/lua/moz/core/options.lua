@@ -67,3 +67,4 @@ vim.opt.background = "dark"
 vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.hlsearch = true
 vim.g.editorconfig = true
+vim.lsp.set_log_level("ERROR")

@@ -215,9 +215,11 @@ return {
 					cargo = {
 						allFeatures = true,
 					},
-					checkOnSave = {
+					checkOnSave = true,
+					check = {
 						command = "clippy",
 					},
+
 					-- rustfmt = {
 					-- 	extraArgs = { "--edition", "2021" },
 					-- },
