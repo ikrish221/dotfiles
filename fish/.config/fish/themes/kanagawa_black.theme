@@ -1,0 +1,51 @@
+#
+# Foreground: DCD7BA
+# Selection: 223249
+# Comment: 727169
+# Red: E82424
+# Orange: FFA066
+# Yellow: E6C384
+# Green: 98BB6C
+# Purple: 957FB8
+# Cyan: 7FB4CA
+# Pink: D27E99
+# Syntax Highlighting Colors
+fish_color_normal DCD7BA
+fish_color_command 7FB4CA
+fish_color_keyword D27E99
+fish_color_quote E6C384
+fish_color_redirection DCD7BA
+fish_color_end FFA066
+fish_color_error E82424
+fish_color_param 957FB8
+fish_color_comment 727169
+fish_color_selection --background=223249
+fish_color_search_match --background=223249
+fish_color_operator 98BB6C
+fish_color_escape D27E99
+fish_color_autosuggestion 727169
+fish_color_cancel E82424 --reverse
+fish_color_option FFA066
+fish_color_history_current --bold
+fish_color_status E82424
+fish_color_valid_path --underline
+# Default Prompt Colors
+fish_color_cwd 98BB6C
+fish_color_cwd_root red
+fish_color_host 957FB8
+fish_color_host_remote 957FB8
+fish_color_user 7FB4CA
+# Completion Pager Colors
+fish_pager_color_progress 727169
+fish_pager_color_background
+fish_pager_color_prefix 7FB4CA
+fish_pager_color_completion DCD7BA
+fish_pager_color_description 727169
+fish_pager_color_selected_background --background=223249
+fish_pager_color_selected_prefix 7FB4CA
+fish_pager_color_selected_completion DCD7BA
+fish_pager_color_selected_description 727169
+fish_pager_color_secondary_background
+fish_pager_color_secondary_prefix 7FB4CA
+fish_pager_color_secondary_completion DCD7BA
+fish_pager_color_secondary_description 727169

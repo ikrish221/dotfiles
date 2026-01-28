@@ -13,6 +13,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 fish_add_path /bin
 fish_add_path ~/.local/bin
 fish_add_path ~/go/bin
+fish_config theme choose reverse_void
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

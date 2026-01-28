@@ -3,14 +3,18 @@ add_newline = true
 # Minimal, calm, left-aligned
 format = "$directory$git_branch$git_status$character"
 palette = "reverse_void"
+# palette = "kanagawa"
 
 [character]
 success_symbol = "[❯](ink)"
 error_symbol   = "[❯](error)"
+# success_symbol = "[❯](oni_violet)"
+# error_symbol   = "[❯](wave_red)"
 
 [directory]
 format = "[$path ]($style)"
 style = "ink"
+# style = "crystal_blue"
 
 [directory.substitutions]
 "Documents" = "doc/"
@@ -20,48 +24,81 @@ style = "ink"
 "Developer" = "wrk/"
 
 [git_branch]
-symbol = ""
-format = "[$branch ]($style)"
+symbol = " "
+format = '[$symbol$branch ]($style)'
 style = "faded"
+# style = "oni_violet"
 
 [git_status]
 format = "[($all_status$ahead_behind)]($style)"
 style = "warn"
+# style = "carp_yellow"
+
+[bun]
+disabled = true
+symbol = "🥟 "
+format = '[$symbol]($style)'
+style = "error"
+detect_files = ['bun.lock', 'bun.lockb', 'bunfig.toml']
+
+[rust]
+disabled = true
+symbol = "🦀 "
+format = '[$symbol]($style)'
+style = "error"
+# style = "samurai_red"
+detect_extensions = ['rs']
+detect_files = ['Cargo.toml']
+
+[docker_context]
+disabled = true
+symbol = "🐳 "
+format = "[$context ]($style)"
+style = "muted"
 
 [cmd_duration]
 disabled = true
 
-# --- Languages (kept disabled, reverse-void ready) ---
-
 [c]
 disabled = true
+symbol = "C "
+format = '[$symbol]($style)'
+style = "error"
+detect_extensions = ['c', 'h']
+commands = [ [ 'cc', '--version' ], [ 'gcc', '--version' ], [ 'clang', '--version' ] ]
+
+[cpp]
+disabled = true
+symbol = "C++ "
+format = '[$symbol]($style)'
+style = "error"
+detect_extensions = ['cpp', 'cc', 'cxx', 'c++', 'hpp', 'hh', 'hxx', 'h++', 'tcc']
+commands = [ [ 'c++', '--version' ], [ 'g++', '--version' ], [ 'clang++', '--version' ] ]
+
+[python]
+disabled = true
+symbol = "🐍 "
+format = '[$symbol]($style)'
+style = "muted"
+detect_extensions = ['py', 'ipynb']
+
+[kubernetes]
+disabled = true
+symbol = "☸ "
+format = '[$symbol]($style)'
+style = "muted"
+
+[aws]
+disabled = true
+format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
+style = 'muted'
+symbol = " "
 
 [nodejs]
 disabled = true
 
-[rust]
-disabled = true
-
-[python]
-disabled = true
-
-# --- Containers / infra ---
-
-[docker_context]
-symbol = ""
-format = "[$context ]($style)"
-style = "muted"
-
-[kubernetes]
-disabled = true
-
-[aws]
-disabled = true
-
 [conda]
 disabled = true
-
-# --- OS (silent, aesthetic only) ---
 
 [os]
 disabled = true
@@ -71,9 +108,27 @@ disabled = true
 # =========================
 
 [palettes.reverse_void]
-ink        = "#1F1F1F"   # primary text (almost black)
-faded      = "#6B6B6B"   # git branch
-muted      = "#8A8A8A"   # docker / secondary
-warn       = "#9C7C38"   # subtle yellow-brown
-error      = "#8C3A3A"   # muted red
-background = "#F6F4EE"   # paper white (reference only)
+ink        = "#1F1F1F"
+faded      = "#6B6B6B"
+muted      = "#8A8A8A"
+warn       = "#9C7C38"
+error      = "#8C3A3A"
+background = "#F6F4EE"
+
+# =========================
+# 🎨 Kanagawa Palette
+# =========================
+
+[palettes.kanagawa]
+fuji_white = "#DCD7BA"   
+samurai_red = "#C34043"  
+sakura_pink = "#D27E99"  
+carp_yellow = "#E6C384"  
+spring_green = "#98BB6C" 
+crystal_blue = "#7E9CD8" 
+spring_blue = "#7FB4CA"  
+surimi_orange = "#FF9E64"
+oni_violet = "#957FB8"   
+wave_red = "#E46876"     
+sumi_ink = "#54546D"     
+
