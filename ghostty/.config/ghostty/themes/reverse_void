@@ -1,4 +1,4 @@
-background = #F6F4EE
+background = #DEDFDE
 foreground = #1F1F1F
 
 selection-foreground = #1F1F1F
@@ -18,7 +18,7 @@ palette = "8=#6B6B6B"
 palette = "9=#7A2E2E"
 palette = "10=#6F8A6A"
 palette = "11=#9C7C38"
-palette = "12=#5E6F8E"
+palette = "12=#3375bf"
 palette = "13=#6F6788"
 palette = "14=#6C8891"
 palette = "15=#1F1F1F"
