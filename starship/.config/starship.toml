@@ -1,13 +1,15 @@
 add_newline = true
 
 # Minimal, calm, left-aligned
-format = "$directory$git_branch$git_status$character"
+format = "$directory$git_branch$character"
 palette = "reverse_void"
 # palette = "kanagawa"
 
 [character]
-success_symbol = "[❯](ink)"
-error_symbol   = "[❯](error)"
+# success_symbol = "[❯](ink)"
+# error_symbol   = "[❯](error)"
+success_symbol = "[λ](ink)"
+error_symbol   = "[λ](error)"
 # success_symbol = "[❯](oni_violet)"
 # error_symbol   = "[❯](wave_red)"
 
@@ -17,11 +19,6 @@ style = "ink"
 # style = "crystal_blue"
 
 [directory.substitutions]
-"Documents" = "doc/"
-"Downloads" = "dl/"
-"Music"     = "snd/"
-"Pictures"  = "img/"
-"Developer" = "wrk/"
 
 [git_branch]
 symbol = " "
