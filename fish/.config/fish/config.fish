@@ -19,12 +19,15 @@ fish_config theme choose reverse_void
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+# Key Bindings
+bind --mode insert ctrl-o nvim
+bind --mode insert ctrl-\\ rmpc
+
 # Global variables
 set -gx EZA_CONFIG_DIR ~/.config/eza
 set -Ux MANPAGER "nvim +Man!"
 set -x LESSHISTFILE "-"
 set -Ux GPG_TTY (tty)
-set -gx TERM xterm-256color
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 set -gx XDG_CONFIG_HOME ~/.config
@@ -49,7 +52,6 @@ alias glog "git log --oneline --graph --all"
 
 # |====== Utils  ======|
 alias sf "fzf | xargs nvim"
-alias s "spf"
 alias cp "cp -i"
 alias dow "z ~/Downloads"
 alias doc "z ~/Documents"
@@ -57,6 +59,7 @@ alias p "open -a Preview.app"
 alias h history
 alias pp "string split ':' $PATH | fzf"
 alias attach "tmux attach"
+alias mpds "mpd ~/.config/mpd/mpd.conf"
 
 # |======  CD  ======|
 alias .. "cd .."
@@ -81,15 +84,17 @@ alias u "source ~/.config/fish/config.fish"
 alias gu "gpgconf --kill gpg-agent &&  gpgconf --launch gpg-agent"
 
 # |======  Applications  ======|
-alias btop bpytop
-alias ff "fastfetch -l android"
+alias ff "fastfetch"
 alias cat bat
 alias lg lazygit
 alias code code-insiders
 
 
-# |======  Live-Server  ======|
+# |======  Custom  ======|
 alias live 'live-server --port=5500 --wait=50 --ignore="**/*.scss,**/*.sass,**/*.ts,.vscode/**"'
+alias trs "tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}' | xargs -I {} tmux send-keys -t {} 'source ~/.config/fish/config.fish' Enter"
+# alias trf "tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}' | xargs -I {} tmux send-keys -t {} 'exec fish' Enter"
+alias trf "tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | awk '$2 ~ /fish|bash|zsh/ {print $1}' | xargs -I {} tmux send-keys -t {} 'exec fish' Enter"
 
 # |======  HomeBrew ======|
 alias bi "brew install"
@@ -116,6 +121,13 @@ function delx
         echo "Deleted."
     else
         echo "Aborted."
+    end
+end
+
+function s
+    set dir (fd --type d --max-depth 3 . ~/dev | fzf --preview 'eza --icons --color=always -la {}')
+    if test -n "$dir"
+        cd $dir
     end
 end
 
