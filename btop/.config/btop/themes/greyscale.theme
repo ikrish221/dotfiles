@@ -1,0 +1,77 @@
+#Bashtop Monochrome theme (Transparent)
+# Pure grayscale palette for minimal aesthetic
+# Main background - empty for transparent
+theme[main_bg]=""
+
+# Main text color - black
+theme[main_fg]="#000000"
+
+# Title color for boxes - black
+theme[title]="#000000"
+
+# Highlight color for keyboard shortcuts - dark gray
+theme[hi_fg]="#333333"
+
+# Background color of selected items - light gray
+theme[selected_bg]="#dddddd"
+
+# Foreground color of selected items - black
+theme[selected_fg]="#000000"
+
+# Color of inactive/disabled text - same as main (no fade)
+theme[inactive_fg]="#000000"
+
+# Color of text appearing on top of graphs - black
+theme[graph_text]="#000000"
+
+# Misc colors for processes box - dark gray
+theme[proc_misc]="#444444"
+
+# Box outline colors - medium gray
+theme[cpu_box]="#666666"
+theme[mem_box]="#666666"
+theme[net_box]="#666666"
+theme[proc_box]="#666666"
+
+# Box divider line and small boxes line color - medium gray
+theme[div_line]="#888888"
+
+# Temperature graph colors - light to dark gray gradient
+theme[temp_start]="#cccccc"
+theme[temp_mid]="#888888"
+theme[temp_end]="#444444"
+
+# CPU graph colors - light to dark gray gradient
+theme[cpu_start]="#bbbbbb"
+theme[cpu_mid]="#777777"
+theme[cpu_end]="#333333"
+
+# Mem/Disk free meter - light gray
+theme[free_start]="#dddddd"
+theme[free_mid]=""
+theme[free_end]="#999999"
+
+# Mem/Disk cached meter - medium gray
+theme[cached_start]="#aaaaaa"
+theme[cached_mid]=""
+theme[cached_end]="#777777"
+
+# Mem/Disk available meter - medium-light gray
+theme[available_start]="#cccccc"
+theme[available_mid]=""
+theme[available_end]="#888888"
+
+# Mem/Disk used meter - dark gray
+theme[used_start]="#666666"
+theme[used_mid]=""
+theme[used_end]="#333333"
+
+# Download graph colors - light to medium-dark gray
+theme[download_start]="#d0d0d0"
+theme[download_mid]="#999999"
+theme[download_end]="#555555"
+
+# Upload graph colors - medium to dark gray
+theme[upload_start]="#c0c0c0"
+theme[upload_mid]="#888888"
+theme[upload_end]="#444444"
