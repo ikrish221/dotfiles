@@ -35,18 +35,11 @@ copy-on-select = clipboard
 
 # Custom Keybinds & Config (super represents cmd key on mac)
 # For Simple Keybinds
-# keybind = super+r=reload_config
+keybind = super+n=new_window
+keybind = super+o=toggle_quick_terminal
+keybind = super+k=close_surface
+keybind = super+r=reload_config
 keybind = super+i=inspector:toggle
-keybind = super+b>,=toggle_quick_terminal
-
-# Similar Tmux but with Ghostty
-# (ctrl b for tmux -> cmb b for ghostty)
-keybind = super+b>r=reload_config
-keybind = super+b>x=close_surface
-# this only works if you have `macos-titlebar-style = tabs or native or transparent`
-# else it behaves like new window
-keybind = super+b>c=new_tab
-keybind = super+b>n=new_window
 
 # tab nav
 # keybind = super+b>1=goto_tab:1
@@ -64,11 +57,7 @@ keybind = super+b>n=new_window
 # keybind = super+b>-=new_split:down
 # keybind = super+b>e=equalize_splits
 
-# split nav (setting this to control will not work if tmux already uses it)
-# keybind = super+b>h=goto_split:left
-# keybind = super+b>j=goto_split:bottom
-# keybind = super+b>k=goto_split:top
-# keybind = super+b>l=goto_split:right
+
 
 #Shaders
 # custom-shader = shaders/blaze_sparks.glsl
