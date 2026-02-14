@@ -5,11 +5,11 @@
 start-at-login = true
 
 after-startup-command = [
-  'exec-and-forget borders style=round width=4.0 active_color=0xff191724 inactive_color=0xff6faec9',
+  'exec-and-forget borders style=round width=4.0 active_color=0xff191724 inactive_color=0xffa6a6a6',
   'exec-and-forget open -a "/Applications/Ghostty.app"',
   'exec-and-forget open -a "/Applications/Zen.app"',
   'exec-and-forget open -a "/Applications/ChatGPT.app"',
-  'exec-and-forget open -a "/Applications/Visual Studio Code - Insiders.app"',
+  # 'exec-and-forget open -a "/Applications/Visual Studio Code - Insiders.app"',
   'exec-and-forget open -a "/Applications/Brave Browser.app"'
 ]
 
@@ -70,7 +70,7 @@ run = ['move-node-to-workspace 8', 'layout floating']
 if.app-id = 'com.apple.systempreferences'
 run = [
   "move-node-to-workspace 10",
-  "layout floating"
+  # "layout floating"
 ]
 
 [[on-window-detected]]
@@ -81,7 +81,7 @@ run = 'move-node-to-workspace 9'
 if.app-id = "com.apple.finder"
 run = [
   "move-node-to-workspace 10",
-  "layout floating"
+  # "layout floating"
 ]
 
 [[on-window-detected]]
@@ -90,10 +90,6 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.discord.Discord'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -138,10 +134,10 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 10
 inner.vertical   = 10
-outer.left       = 7
-outer.right      = 7
-outer.bottom     = 7
-outer.top        = 7
+outer.left       = 5
+outer.right      = 5
+outer.bottom     = 3
+outer.top        = 5
 
 # ─────────────────────────────────────────────
 # Main Mode Bindings
@@ -231,7 +227,7 @@ alt-d = 'exec-and-forget open -a "/Applications/Discord.app"'
 # Modes
 # ─────────────────────────────────────────────
 
-alt-shift-semicolon = 'mode service'
+alt-semicolon = 'mode service'
 alt-shift-enter     = 'mode apps'
 
 [mode.service.binding]
@@ -239,6 +235,7 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']
 f = ['layout floating tiling', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
-
-[mode.apps.binding]
-alt-w = ['exec-and-forget open -a "/Applications/WezTerm.app"', 'mode main']
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
