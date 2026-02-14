@@ -7,6 +7,14 @@ return {
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = true,
 	},
+	{
+		"Wansmer/treesj",
+		keys = { "<space>m" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("treesj").setup({})
+		end,
+	},
 	--
 	-- HACK: The Key Commands -> for help run ;h nvim-surround.usage
 	--

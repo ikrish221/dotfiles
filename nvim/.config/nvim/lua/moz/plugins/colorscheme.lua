@@ -1,4 +1,128 @@
 return {
+	-- NOTE: monochrome
+	{
+		"idr4n/github-monochrome.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			transparent = true,
+			styles = {
+				comments = { italic = false },
+				keywords = { italic = false },
+				floats = "transparent",
+			},
+			on_highlights = function(hl, c)
+				-- Main backgrounds
+				hl.String = { fg = c.blue }
+				hl.Character = { fg = c.blue }
+				hl.Function = { fg = c.blue }
+				hl["@string"] = { fg = c.blue }
+				hl["@function"] = { fg = c.blue }
+				hl["@function.call"] = { fg = c.blue }
+				hl.Normal = { bg = c.none }
+				hl.NormalNC = { bg = c.none }
+				hl.Visual = { bg = "#CCCCFF" }
+				hl.NormalFloat = { bg = c.none }
+				hl.FloatBorder = { bg = c.none }
+				hl.FloatTitle = { bg = c.none }
+
+				-- Noice LSP progress notifications (bottom right)
+				hl.NoiceLspProgressTitle = { fg = c.blue } -- Change title color
+				hl.NoiceLspProgressClient = { fg = c.fg } -- Client name color
+				hl.NoiceLspProgressSpinner = { fg = c.blue } -- Spinner color
+
+				-- Telescope
+				hl.TelescopeNormal = { bg = c.none }
+				hl.TelescopeBorder = { bg = c.none }
+				hl.TelescopeTitle = { bg = c.none }
+				hl.TelescopePromptNormal = { bg = c.none }
+				hl.TelescopePromptBorder = { bg = c.none }
+				hl.TelescopePromptTitle = { bg = c.none }
+				hl.TelescopePromptPrefix = { bg = c.none }
+				hl.TelescopeResultsNormal = { bg = c.none }
+				hl.TelescopeResultsBorder = { bg = c.none }
+				hl.TelescopeResultsTitle = { bg = c.none }
+				hl.TelescopePreviewNormal = { bg = c.none }
+				hl.TelescopePreviewBorder = { bg = c.none }
+				hl.TelescopePreviewTitle = { bg = c.none }
+
+				-- Snacks Picker
+				hl.SnacksPickerInputBorder = { fg = c.black, bg = c.bg_float }
+				hl.SnacksPickerListCursorLine = { bg = "#CCCCFF" }
+				hl.SnacksPickerPreviewCursorLine = { bg = "#D73A49" }
+				hl.SnacksPickerPreviewTitle = { fg = "#D73A49", bg = c.bg_float }
+				hl.SnacksPickerInputTitle = { fg = "#D73A49", bg = c.bg_float }
+
+				-- LSP/Completion menu (nvim-cmp)
+				hl.Pmenu = { bg = c.none }
+				hl.PmenuSel = { bg = c.none }
+				hl.PmenuSbar = { bg = c.none }
+				hl.PmenuThumb = { bg = c.none }
+				hl.CmpItemAbbr = { bg = c.none }
+				hl.CmpItemAbbrMatch = { bg = c.none }
+				hl.CmpItemAbbrMatchFuzzy = { bg = c.none }
+				hl.CmpItemKind = { bg = c.none }
+				hl.CmpItemMenu = { bg = c.none }
+
+				-- Sidebars and special windows
+				hl.NvimTreeNormal = { bg = c.none }
+				hl.NeoTreeNormal = { bg = c.none }
+				hl.LazyNormal = { bg = c.none }
+				hl.MasonNormal = { bg = c.none }
+
+				-- Status and tab lines
+				hl.StatusLine = { bg = c.none }
+				hl.StatusLineNC = { bg = c.none }
+				hl.TabLine = { bg = c.none }
+				hl.TabLineFill = { bg = c.none }
+
+				-- Line numbers and signs
+				hl.SignColumn = { bg = c.none }
+				hl.LineNr = { bg = c.none }
+				hl.CursorLineNr = { bg = c.none }
+
+				-- Git signs
+				hl.GitSignsAdd = { bg = c.none }
+				hl.GitSignsChange = { bg = c.none }
+				hl.GitSignsDelete = { bg = c.none }
+			end,
+		},
+	},
+	--NOTE: E-Ink
+	{
+		"e-ink-colorscheme/e-ink.nvim",
+		-- name = "ink",
+		priority = 1000,
+		config = function()
+			require("e-ink").setup()
+			vim.opt.background = "light"
+			local set_hl = vim.api.nvim_set_hl
+			local mono = require("e-ink.palette").mono()
+			set_hl(0, "Normal", { fg = mono[12], bg = "NONE" })
+		end,
+	},
+	--NOTE Vague
+	{
+		"vague-theme/vague.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other plugins
+		config = function()
+			require("vague").setup({})
+		end,
+	},
+	--NOTE Fogbell
+	{
+		"jaredgorski/fogbell.vim",
+	},
+	--NOTE Lackluster
+	{
+		"slugbyte/lackluster.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("lackluster").setup({})
+		end,
+	},
 	-- NOTE: Catppuccin
 	{
 		"catppuccin/nvim",
@@ -294,76 +418,6 @@ return {
 				},
 			})
 		end,
-	},
-	-- NOTE: monochrome
-	{
-		"idr4n/github-monochrome.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			transparent = true,
-			styles = {
-				comments = { italic = false },
-				keywords = { italic = false },
-				floats = "transparent",
-			},
-			on_highlights = function(hl, c)
-				-- Main backgrounds
-				hl.Normal = { bg = c.none }
-				hl.NormalNC = { bg = c.none }
-				hl.NormalFloat = { bg = c.none }
-				hl.FloatBorder = { bg = c.none }
-				hl.FloatTitle = { bg = c.none }
-
-				-- Telescope
-				hl.TelescopeNormal = { bg = c.none }
-				hl.TelescopeBorder = { bg = c.none }
-				hl.TelescopeTitle = { bg = c.none }
-				hl.TelescopePromptNormal = { bg = c.none }
-				hl.TelescopePromptBorder = { bg = c.none }
-				hl.TelescopePromptTitle = { bg = c.none }
-				hl.TelescopePromptPrefix = { bg = c.none }
-				hl.TelescopeResultsNormal = { bg = c.none }
-				hl.TelescopeResultsBorder = { bg = c.none }
-				hl.TelescopeResultsTitle = { bg = c.none }
-				hl.TelescopePreviewNormal = { bg = c.none }
-				hl.TelescopePreviewBorder = { bg = c.none }
-				hl.TelescopePreviewTitle = { bg = c.none }
-
-				-- LSP/Completion menu (nvim-cmp)
-				hl.Pmenu = { bg = c.none }
-				hl.PmenuSel = { bg = c.none }
-				hl.PmenuSbar = { bg = c.none }
-				hl.PmenuThumb = { bg = c.none }
-				hl.CmpItemAbbr = { bg = c.none }
-				hl.CmpItemAbbrMatch = { bg = c.none }
-				hl.CmpItemAbbrMatchFuzzy = { bg = c.none }
-				hl.CmpItemKind = { bg = c.none }
-				hl.CmpItemMenu = { bg = c.none }
-
-				-- Sidebars and special windows
-				hl.NvimTreeNormal = { bg = c.none }
-				hl.NeoTreeNormal = { bg = c.none }
-				hl.LazyNormal = { bg = c.none }
-				hl.MasonNormal = { bg = c.none }
-
-				-- Status and tab lines
-				hl.StatusLine = { bg = c.none }
-				hl.StatusLineNC = { bg = c.none }
-				hl.TabLine = { bg = c.none }
-				hl.TabLineFill = { bg = c.none }
-
-				-- Line numbers and signs
-				hl.SignColumn = { bg = c.none }
-				hl.LineNr = { bg = c.none }
-				hl.CursorLineNr = { bg = c.none }
-
-				-- Git signs
-				hl.GitSignsAdd = { bg = c.none }
-				hl.GitSignsChange = { bg = c.none }
-				hl.GitSignsDelete = { bg = c.none }
-			end,
-		},
 	},
 	-- NOTE: neosolarized
 	{

@@ -50,7 +50,12 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- misc
-vim.opt.guicursor = ""
+vim.opt.guicursor = {
+	"n-v-c:block",
+	"i-ci-ve:ver25",
+	"r-cr:hor20",
+	"o:hor50",
+}
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
@@ -67,4 +72,4 @@ vim.opt.background = "dark"
 vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.hlsearch = true
 vim.g.editorconfig = true
-vim.lsp.set_log_level("ERROR")
+-- vim.lsp.set_log_level("ERROR")

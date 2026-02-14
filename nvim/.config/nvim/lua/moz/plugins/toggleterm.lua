@@ -50,7 +50,7 @@ return {
 				float_term = Terminal:new({
 					cmd = cmd,
 					direction = "float",
-					close_on_exit = false,
+					close_on_exit = true,
 					float_opts = {
 						border = "curved",
 						width = math.floor(vim.o.columns * 0.9),
@@ -100,6 +100,16 @@ return {
 			local cmd = string.format("clear && bun run %s ; exec $SHELL", file_path)
 			run_in_float(cmd)
 		end, { desc = "Run Javascript file" })
+
+		-- Open rmpc
+		vim.keymap.set("n", "<leader>\\", function()
+			run_in_float("rmpc")
+		end, { desc = "Open rmpc" })
+
+		-- Open rmpc
+		vim.keymap.set("n", "<leader>tb", function()
+			run_in_float("btop")
+		end, { desc = "Open btop" })
 
 		-- Close terminal function
 		local function close_float_term()
