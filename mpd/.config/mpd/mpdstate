@@ -1,0 +1,40 @@
+sw_volume: 100
+audio_device_state:1:CoreAudio
+audio_device_state:1:HTTP Stream
+audio_device_state:1:my_fifo
+state: pause
+current: 13
+time: 13.24
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0
+mixrampdelay: -1
+lastloadedplaylist: 
+playlist_begin
+0:KALYANI.opus
+1:Tuyo.opus
+2:Can't Help Falling In Love [TlrNxJqODBc].opus
+3:Can't Help Falling In Love.opus
+4:Careless Whisper.opus
+5:Just the Two of Us.opus
+6:Ladyfingers.opus
+7:Aap Ki Kashish [qfbGAWK-SGM].opus
+8:Aap Ki Kashish [Y6FWFKXu1FY].opus
+9:The Lamp Is Low.opus
+10:Sway.opus
+11:Israel ＂IZ＂ Kamakawiwoʻole.opus
+12:Aarzu.opus
+13:Put Your Head On My Shoulder.opus
+14:Faqeeran.opus
+15:The Night We Met.opus
+16:Smooth Operator.opus
+17:You Belong to Me.opus
+18:And I Love Her.opus
+19:Sleepwalk.opus
+20:DtMF.opus
+21:Far From Any Road.opus
+22:Be My Baby.opus
+playlist_end
